@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 12%;
+
+    --primary: 215 25% 12%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 215 25% 12%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 215 25% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 215 25% 12%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --chip-bg: 220 14% 96%;
+    --chip-bg-active: 215 25% 12%;
+    --chip-text: 215 25% 12%;
+    --chip-text-active: 0 0% 100%;
+    
+    --skeleton: 220 14% 90%;
+    --skeleton-shine: 220 14% 95%;
+    
+    --whatsapp: 142 70% 45%;
+    --facebook: 221 44% 41%;
+    
+    --footer-bg: 215 25% 12%;
+    --footer-text: 220 14% 96%;
+
+    /* Font sizes */
+    --font-size-base: 1rem;
+    --font-size-large: 1.125rem;
+  }
+
+  .dark {
+    --background: 215 25% 12%;
+    --foreground: 220 14% 96%;
+
+    --card: 215 20% 16%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 215 20% 16%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 220 14% 96%;
+    --primary-foreground: 215 25% 12%;
+
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 215 20% 20%;
+    --accent-foreground: 220 14% 96%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 220 14% 96%;
+
+    --border: 215 20% 25%;
+    --input: 215 20% 25%;
+    --ring: 220 14% 96%;
+
+    /* Custom tokens dark */
+    --chip-bg: 215 20% 20%;
+    --chip-bg-active: 220 14% 96%;
+    --chip-text: 220 14% 96%;
+    --chip-text-active: 215 25% 12%;
+    
+    --skeleton: 215 20% 20%;
+    --skeleton-shine: 215 20% 25%;
+    
+    --footer-bg: 215 25% 8%;
+    --footer-text: 220 14% 96%;
+  }
+
+  .large-text {
+    --font-size-base: 1.125rem;
+    --font-size-large: 1.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: var(--font-size-base);
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .skeleton-shimmer {
+    @apply relative overflow-hidden;
+    background: hsl(var(--skeleton));
+  }
+
+  .skeleton-shimmer::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--skeleton-shine)),
+      transparent
+    );
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
